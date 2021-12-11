@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit entry
+{% endblock %}
+
+{% block body %}
+    <form action="{% url 'edit' title='none' %}" method="post">
+        <table class="table table-borderless"></table>
+            {% csrf_token %}
+            {{ preform }}
+            <tr><td></td>
+            <td><input type="submit" value="Save Changes"></td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}

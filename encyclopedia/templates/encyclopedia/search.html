@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block body %}
+    <h2>You searched for "{{query}}"</h2><br>
+    {% if matches %}
+        Here's what we found:<br> 
+        <ul>
+            {% for item in matches %}
+                <li><a href= "{% url 'title' entry=item %}"> {{ item }} </a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        No matches exist. Sorry!
+    {% endif %}
+{% endblock %}
